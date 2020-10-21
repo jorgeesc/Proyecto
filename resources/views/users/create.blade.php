@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.layout')
 @section('content')
 <center>
 <div class="container">

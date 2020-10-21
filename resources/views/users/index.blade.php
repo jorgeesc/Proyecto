@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.layout')
 @section('content')
 
 <a href="{{route('users.create')}}">Registrar usuario</a>
