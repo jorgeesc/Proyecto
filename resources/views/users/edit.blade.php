@@ -2,7 +2,7 @@
 @section('content')
 
 
-<h1>Lista</h1>
+<h1>Erick</h1>
 <!-- <table>
 	<thead>
 		<tr>
