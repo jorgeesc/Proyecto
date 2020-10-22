@@ -84,7 +84,7 @@
                         <p class="text-white-50">
                             Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
                             <a href="https://startbootstrap.com/template-overviews/grayscale/">the preview page</a>
-                            @yield('content')
+                            
                         </p>
                     </div>
                 </div>
