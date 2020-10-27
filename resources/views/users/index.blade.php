@@ -9,7 +9,7 @@
 
 @endif
 
-<table class="table table-straped">
+<table class="table table-straped" bgcolor="white">
 	<thead>
 		<tr>
 			<td>Nombre</td><br>
@@ -30,4 +30,5 @@
 
 </tbody>
 </table>
+
 @endsection

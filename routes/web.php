@@ -13,14 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::resource('users','UserController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/cache', function() {
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    return "Caché limpio";
+})->name('cache');
+
+Route::group(['middleware' => ['auth'] ], function(){
+    Route::resource('users', 'UserController');
+    Route::resource('productos', 'ProductoController');
+    Route::resource('cproductos', 'cProductoController');
+});
