@@ -31,6 +31,7 @@ Route::get('/cache', function() {
 
 Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('users', 'UserController');
-    Route::resource('productos', 'ProductoController');
-    Route::resource('cproductos', 'cProductoController');
+    Route::resource('juegos', 'juegosController');
+   
 });
+
