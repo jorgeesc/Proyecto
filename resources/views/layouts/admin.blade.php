@@ -29,7 +29,7 @@
                     <ul class="navbar-nav ml-auto">
                         
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
-                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Noticias</a></li>
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Conocenos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Genero.index') }}">Género</a></li>
                         

@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('users', 'UserController');
     Route::resource('Juegos', 'juegosController');
     Route::resource('Genero', 'generoController');
+    Route::resource('Noticias', 'noticiasController');
    
 });
 
