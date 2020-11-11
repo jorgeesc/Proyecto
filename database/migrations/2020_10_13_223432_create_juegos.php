@@ -16,13 +16,10 @@ class CreateJuegos extends Migration
         Schema::create('juegos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',100);
-            $table->string('portada',200);
             $table->string('descripcion',300);
             $table->decimal('precio',13,2)->default(0);
             $table->boolean('status');
             $table->integer('stock')->default(0);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 
 
