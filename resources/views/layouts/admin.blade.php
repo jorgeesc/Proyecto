@@ -69,17 +69,19 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
-            <div class="container d-flex h-100 align-items-center">
 
-                <div class="container">
+
+        <section class="signup-section">
+            <div class="container">
+                <!-- Featured Project Row-->
                 <div class="row">
                    @yield('content')
+                  
                 </div>
-                
+                <!-- Project Two Row-->
+         
             </div>
-            </div>
-        </header>
+        </section>
 
         <!-- @yield('content') -->
         <!--  -->
