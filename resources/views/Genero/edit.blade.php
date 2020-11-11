@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Users') }}</div>
+                <div class="card-header">{{ __('Género') }}</div>
 <div class="card-body">
 
 <a href="{{ route('Genero.show', $modelo->id) }}">Regresar</a> <br> <br>
@@ -13,7 +13,7 @@
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model( $modelo, array('route' => array('Genero.update', $modelo->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
+{{ Form::model( $modelo, array('route' => array('Genero.update', $modelo->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data' ) ) }}
 
 
 <div class="row">
@@ -22,6 +22,11 @@
         {{ Form::label('nombre', 'Nombre') }}
         {{ Form::text('nombre', null, 
            array('class' => 'form-control', 'required'=>true)) }}
+    </div>
+
+    <div class="form-group col-md-4">
+        {{ Form::label('imagen', 'Imagen')}} <br>
+        {{ Form::file('imagen', ['accept'=>"image/x-png,image/gif,image/jpeg"]) }} <br>
     </div>
 
 </div>
