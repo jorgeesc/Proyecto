@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-15">
             <div class="card">
                 <div class="card-header">{{ __('Juegos') }}</div>
 <div class="card-body">
@@ -35,7 +35,7 @@
                 <td>{{$rowJuegos->stock}}</td>
                 
                 <td>
-                        <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" width="50%">
+                        <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" width="30%">
                     </td>
             </tr>
         @endforeach

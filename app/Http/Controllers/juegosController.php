@@ -129,7 +129,6 @@ class juegosController extends Controller
         $mJuegos->save();
 
         $file = $request->file('imagen');
-        $mJuegos->fill($request->all());
         if($file){
         $imgNombreVirtual = $file->getClientOriginalName();
         $imgNombreFisico = $mJuegos->id.'-'.$imgNombreVirtual;

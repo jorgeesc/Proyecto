@@ -112,7 +112,16 @@ class generoController extends Controller
         $mGenero->fill($request->all());
 
         $mGenero->save();
-
+        
+        $file = $request->file('imagen');
+        if($file){
+        $imgNombreVirtual = $file->getClientOriginalName();
+        $imgNombreFisico = $mGenero->id.'-'.$imgNombreVirtual;
+        \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
+        $mGenero->imgNombreVirtual = $imgNombreVirtual;
+        $mGenero->imgNombreFisico = $imgNombreFisico;
+        $mGenero->save();
+        }
         Session::flash('message', 'Género actualizado');
         return Redirect::to('Genero');
     }
