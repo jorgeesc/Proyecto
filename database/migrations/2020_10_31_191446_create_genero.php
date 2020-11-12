@@ -15,8 +15,12 @@ class CreateGenero extends Migration
     {
         Schema::create('genero', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',200);
+            $table->string('nombre');
             $table->timestamps();
+        });
+
+        Schema::table('juegos', function (Blueprint $table){
+            $table->unsignedBigInteger('genero_id');
         });
     }
 
@@ -27,6 +31,10 @@ class CreateGenero extends Migration
      */
     public function down()
     {
+        Schema::table('juegos',function(Blueprint $table){
+            $table->dropColumn('genero_id');
+        });
+
         Schema::dropIfExists('genero');
     }
 }
