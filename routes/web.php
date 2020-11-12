@@ -31,6 +31,7 @@ Route::get('/cache', function() {
 
 Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('users', 'UserController');
+    Route::resource('Roles', 'rolesController');
     Route::resource('Juegos', 'juegosController');
     Route::resource('Genero', 'generoController');
     Route::resource('Noticias', 'noticiasController');

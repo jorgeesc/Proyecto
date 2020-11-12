@@ -20,20 +20,30 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">DATAPLAY</a>
+                <a class="navbar-brand js-scroll-trigger" href="home">DATAPLAY</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+                        @if( \Auth::user()->rol_id== 2 )
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('users.index') }}">Usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Roles.index') }}">Roles</a></li>
                         
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Conocenos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Genero.index') }}">Género</a></li>
                         
+                        @else
                         
+                        
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Conocenos</a></li>
+                        
+                        @endif
                           @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
