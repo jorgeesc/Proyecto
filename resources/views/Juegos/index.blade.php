@@ -21,6 +21,7 @@
             <th>status</th>
             <th>stock</th>
             <th>Portada</th>
+            <th>Género</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,8 @@
                 <td>
                         <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" width="30%">
                     </td>
+
+                <td>{{$rowJuegos->genero}}</td>
             </tr>
         @endforeach
     </tbody>
