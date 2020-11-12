@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\userEloquent;
 use Session;
 use Redirect;
+use App\Models\Roles;
 
 class UserController extends Controller
 {
@@ -27,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-       return view('users.create');
+       $tableRol = Roles::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('users.create',[ 'tableRol' => $tableRol ]);
     }
 
     /**
@@ -38,15 +40,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {   $validateData=$request->validate([
-        'name'=>'required|min:10|max:30',
+        'name'=>'required|min:2|max:30',
         'password'=>'required|min:5|max:10',
         'email'=>'required|email|unique:users'
     ]);
+        $usrExistente = UserEloquent::where('email', $request->email)->first(); 
         
-        $mUser = new UserEloquent;
-        $mUser->name = $request->name;
-        $mUser->email = $request->email;
-        $mUser->password = bcrypt($request->password);
+        if($usrExistente){
+            return Redirect()->route('users.create')->withErrors(['email' => 'Mi error'])->withInput();
+        }
+
+        $mUser = new UserEloquent();
+        $mUser->fill($request->all());
+        $mUser->password = bcrypt($mUser->password);
+        $mUser->rol_id = $request->rol_id;
         $mUser->save();
 
         Session::flash('message','Usuario Creado!');
@@ -61,7 +68,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $modelo = UserEloquent::find($id);
+        return view('users.show', ["modelo" => $modelo]);
     }
 
     /**
@@ -72,7 +80,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mUser = userEloquent::find($id);
+        $tableRol = Roles::orderBy('nombre')->get()->pluck('nombre','id'); 
+        return view('users.edit', ["modelo" => $mUser, "tableRol"=>$tableRol]);
     }
 
     /**
@@ -84,7 +94,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|min:2|max:30',
+            'password' => 'min:5|max:10',
+            'email' => 'required|email',
+        ]);
+
+        $mUser = UserEloquent::find($id);
+        $mUser->name = $request->name;
+        $mUser->email = $request->email;
+        $mUser->updated_at = date('Y-m-d H:i:s');
+        $mUser->rol_id = $request->rol_id;
+        if($request->password != '*****'){
+            $mUser->password = bcrypt($request->password);
+        }
+        $mUser->save();
+
+        // Regresa a lista de usuario
+        Session::flash('message', 'Usuario actualizado!');
+        return Redirect::to('users');
     }
 
     /**
@@ -95,6 +123,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mUser = UserEloquent::find($id);
+        $mUser->delete();
+
+        Session::flash('message', 'Usuario eliminado!');
+        return Redirect::to('users');
     }
 }
