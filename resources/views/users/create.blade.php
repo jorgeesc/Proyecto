@@ -3,12 +3,13 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Juegos') }}</div>
+                <div class="card-header">{{ __('Usuarios') }}</div>
 <div class="card-body">
 
 <a href="{{URL::to('users')}}"> Regresar</a><br>
+<center>
 <h5>Formulario de creación</h5>
 
 {{HTML::ul($errors->all())}}
@@ -36,10 +37,11 @@
            array('class' => 'form-control')) }}
 </div>
 
+
 <br>
 {{Form::submit('Registrar usuario',["class"=>"btn-primary"])}}
 {{Form::close()}}
-
+</center>
 </div>
                 </div>
         </div>
