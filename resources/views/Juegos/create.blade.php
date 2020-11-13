@@ -54,6 +54,12 @@
         {{ Form::file('imagen', ['accept'=>"image/x-png,image/gif,image/jpeg"]) }} <br>
     </div>
 
+    <div class="form-group col-md-3">
+        {{ Form::label('genero_id', 'Género del Juego') }}
+        {{ Form::select('genero_id', $tableJuegos, Request::old('genero_id'),  
+           array('class' => 'form-control')) }}
+    </div>
+
 </div>
 
     {{ Form::submit('Registrar Juego', ['class' => 'btn btn-primary'] ) }}

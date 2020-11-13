@@ -11,6 +11,11 @@ class Juegos extends Model
 
     protected $table = 'juegos';
 
-    protected $fillable = ['nombre', 'descripcion', 'precio', 'status', 'stock', 'imgNombreVirtual', 'imgNombreFisico'];
+    protected $fillable = ['nombre', 'descripcion', 'precio', 'status', 'stock', 'genero_id', 'imgNombreVirtual', 'imgNombreFisico'];
 
+    public function getGenero()
+    {
+                            // Modelo de referencia, campo local, campo foráneo 
+        return $this->belongsTo('App\Models\Genero','genero_id','id');
+    }
 }

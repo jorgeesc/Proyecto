@@ -20,6 +20,7 @@
 		<tr>
 			<td>Nombre</td><br>
 			<td>Correo</td>
+			<td>Rol</td>
 		</tr>
 </thead> 
 <tbody>
@@ -30,6 +31,7 @@
         </td>
 		
 		<td>{{$rowUser->email}}</td>
+		<td>{{$rowUser->getRol->nombre}}</td>
 
 
 	</tr>

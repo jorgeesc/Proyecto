@@ -55,6 +55,12 @@
         {{ Form::file('imagen', ['accept'=>"image/x-png,image/gif,image/jpeg"]) }} <br>
     </div>
 
+    <div class="form-group col-md-4">
+        {{ Form::label('genero_id', 'Género del Juego') }}
+        {{ Form::select('genero_id', $tableJuegos, $modelo->genero_id,  
+           array('class' => 'form-control')) }}
+    </div>
+
 </div>
 
 

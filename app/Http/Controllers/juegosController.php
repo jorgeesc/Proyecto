@@ -8,6 +8,8 @@ use Session;
 Use Redirect;
 use Illuminate\Support\Facades\DB;
 use App\Models\Juegos;
+use App\Models\Genero;
+
 
 class juegosController extends Controller
 {
@@ -22,9 +24,12 @@ class juegosController extends Controller
      */
     public function index()
     {
-        $tableJuegos = Juegos::all();
-        return view('Juegos.index',["tableJuegos" => $tableJuegos]);
+        $tableJuegos = DB::table('juegos')
+        ->join('genero', 'juegos.genero_id', '=', 'genero.id')
+        ->select('juegos.*', 'genero.nombre as genero')
+        ->get();
 
+        return view('Juegos.index', ["tableJuegos" =>  $tableJuegos ]);
     }
 
     /**
@@ -34,7 +39,8 @@ class juegosController extends Controller
      */
     public function create()
     {
-        return view('Juegos.create');
+        $tableJuegos = Genero::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Juegos.create',[ 'tableJuegos' => $tableJuegos]);
     }
 
     /**
@@ -98,7 +104,7 @@ class juegosController extends Controller
     public function edit($id)
     {
         $modelo = Juegos::find($id);
-        $tableJuegos = Juegos::orderBy('nombre')->get()->pluck('nombre','id');
+        $tableJuegos = Genero::orderBy('nombre')->get()->pluck('nombre','id');
         return view('Juegos.edit', ["modelo" => $modelo, "tableJuegos"=>$tableJuegos]);
     }
 
@@ -116,6 +122,7 @@ class juegosController extends Controller
             'descripcion' => 'required|min:10|max:1000',
             'precio' => 'required|numeric|min:0',
             'stock' => 'required|min:1|max:4',
+            'genero_id' => 'required|exists:genero,id'
             
         ]);
 

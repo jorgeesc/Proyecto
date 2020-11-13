@@ -24,11 +24,12 @@
         </tr>
     </thead>
     <tbody>
-            <tr><td> Nombre de producto </td> <td>{{$modelo->nombre}}</td></tr>
+            <tr><td> Nombre del Juego </td> <td>{{$modelo->nombre}}</td></tr>
             <tr><td> Descripción </td> <td>{{$modelo->descripcion}}</td></tr>
             <tr><td> Precio </td> <td>{{$modelo->precio}}</td></tr>
             <tr><td> Estatus </td> <td> @if($modelo->status) Sí @else No @endif </td></tr>
             <tr><td> Stock </td> <td>{{$modelo->stock}}</td></tr>
+            <tr><td> Género </td> <td>{{$modelo->getGenero->nombre}}</td></tr>
             <tr><td> Fecha de registro </td> <td>{{$modelo->created_at}}</td></tr>
             <tr><td> Fecha de modificación </td> <td>{{$modelo->updated_at}}</td></tr>
     </tbody>
