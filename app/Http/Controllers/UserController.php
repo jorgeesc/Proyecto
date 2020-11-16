@@ -15,10 +15,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tableUsers = UserEloquent::all();
-        return view ('users.index',["tableUsers"=> $tableUsers]);
+        // $tableUsers = UserEloquent::all();
+        // return view ('users.index',["tableUsers"=> $tableUsers]);
+
+        $whereClause = [];
+        if($request->nombre){
+            array_push($whereClause, [ "name" ,'like', '%'.$request->nombre.'%' ]);
+            }
+            $tableUsers = UserEloquent::orderBy('name')->where($whereClause)->get();
+            return view('users.index', ["tableUsers" => $tableUsers, "filtroNombre" => $request->nombre ]);
     }
 
     /**

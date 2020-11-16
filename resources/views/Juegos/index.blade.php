@@ -13,6 +13,17 @@
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
+
+<form>
+<div class="row">
+<div class="form-group col-md-3">
+<label for="nombre">Filtrar por nombre</label>
+<input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
+</div>
+</div>
+<button>Buscar</button>
+</form>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -40,7 +51,7 @@
                         <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" width="30%">
                     </td>
 
-                <td>{{$rowJuegos->genero}}</td>
+                <td>{{$rowJuegos->getGenero->nombre}}</td>
             </tr>
         @endforeach
     </tbody>
@@ -51,9 +62,12 @@
         </div>
     </div>
 </div>
+
+
 @else
 
-<section>
+
+<section class="">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -109,79 +123,25 @@
 </div><br><br>
 </section>
 
-<section>
-  
-   <div class="row">
-  <div class="col-md-12">
 
-    <div id="mdb-lightbox-ui"></div>
+ @foreach($tableJuegos as $rowJuegos)
+<center><figure class="figure">
+  <a href="{{route('Juegos.show', $rowJuegos->id)}}" data-size="1200x1017"><h1>{{$rowJuegos->nombre}}</h1>
+  <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" class="figure-img img-fluid rounded" width="90%" height="100px" alt="...">  
+</figure>
+</a>
 
-    <div class="mdb-lightbox">
+<h6>{{$rowJuegos->precio}}</h6>
+<h6>{{$rowJuegos->genero}}</h6>
+</center>
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(145).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg" class="img-fluid">
-        </a>
-      </figure>
+@endforeach
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(150).jpg" class="img-fluid" />
-        </a>
-      </figure>
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(152).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(152).jpg" class="img-fluid" />
-        </a>
-      </figure>
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(42).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(42).jpg" class="img-fluid" />
-        </a>
-      </figure>
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(151).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(151).jpg" class="img-fluid" />
-        </a>
-      </figure>
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg" class="img-fluid" />
-        </a>
-      </figure>
 
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(148).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(148).jpg" class="img-fluid" />
-        </a>
-      </figure>
-
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(147).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" />
-        </a>
-      </figure>
-
-      <figure class="col-md-4">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(149).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(149).jpg" class="img-fluid" />
-        </a>
-      </figure>
-
-    </div>
-
-  </div>
-</div>
-</section>
-<script>// MDB Lightbox Init
-$(function () {
-$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-});
-</script>
 
 @endif
 @endsection

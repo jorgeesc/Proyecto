@@ -22,12 +22,20 @@ class juegosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $tableJuegos = DB::table('juegos')
         ->join('genero', 'juegos.genero_id', '=', 'genero.id')
         ->select('juegos.*', 'genero.nombre as genero')
         ->get();
+
+        $whereClause = [];
+		if($request->nombre){
+			array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+		}
+		$tableJuegos = Juegos::orderBy('nombre')->where($whereClause)->get();
+		return view('Juegos.index', ["tableJuegos" => $tableJuegos, "filtroNombre" => $request->nombre ]);
+
 
         return view('Juegos.index', ["tableJuegos" =>  $tableJuegos ]);
     }
@@ -94,6 +102,7 @@ class juegosController extends Controller
         $modelo = Juegos::find($id);
         return view('Juegos.show', ["modelo" => $modelo]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

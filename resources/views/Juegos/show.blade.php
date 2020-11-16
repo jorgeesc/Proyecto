@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+@if( \Auth::user()->rol_id== 2 )
 
 <div class="container">
     <div class="row justify-content-center">
@@ -42,5 +43,34 @@
     </div>
 </div>
 
+@else
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <h1><div class="card-header">{{$modelo->nombre}}</div></h1>
+<div class="card-body">
+
+          <center><td><img src="{{ asset('storage/'.$modelo->imgNombreFisico )}}" width="90%"></td></center>
+             Descripción </td> <td>{{$modelo->descripcion}}<br>
+             Precio </td> <td>{{$modelo->precio}}<br>
+             Stock </td> <td>{{$modelo->stock}}<br>
+             Género </td> <td>{{$modelo->getGenero->nombre}}<br>
+             
+
+
+       
+</div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@endif
 
 @endsection

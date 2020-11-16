@@ -15,6 +15,16 @@
 
 @endif
 
+<form>
+<div class="row">
+<div class="form-group col-md-3">
+<label for="nombre">Filtrar por nombre</label>
+<input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
+</div>
+</div>
+<button>Buscar</button>
+</form>
+
 <table class="table table-straped" bgcolor="white">
 	<thead>
 		<tr>
