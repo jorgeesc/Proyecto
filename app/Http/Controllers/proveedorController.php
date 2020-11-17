@@ -7,23 +7,20 @@ use Illuminate\Http\Request;
 use Session;
 use Redirect;
 use Illuminate\Support\Facades\DB;
-use App\Models\Genero;
+use App\Models\Proveedor;
 
-class generoController extends Controller
+class proveedorController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth'); 
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    
     public function index()
     {
-        $tableGenero = Genero::all();
-        return view('Genero.index',["tableGenero" => $tableGenero]);
+        $tableProveedor = Proveedor::all();
+        return view('Proveedor.index',["tableProveedor" => $tableProveedor]);
     }
 
     /**
@@ -33,7 +30,7 @@ class generoController extends Controller
      */
     public function create()
     {
-        return view('Genero.create');
+        return view('Proveedor.create');
     }
 
     /**
@@ -44,29 +41,27 @@ class generoController extends Controller
      */
     public function store(Request $request)
     {
-    
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:30'
         ]);
 
-        $mGenero = new Genero($request->all());
+        $mProveedor = new Proveedor($request->all());
         
-        $mGenero->save();
+        $mProveedor->save();
 
         $file = $request->file('imagen');
         if($file){
-        $imgNombreVirtual = $file->getClientOriginalName();
-        $imgNombreFisico = $mGenero->id.'-'.$imgNombreVirtual;
-        \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
-        $mGenero->imgNombreVirtual = $imgNombreVirtual;
-        $mGenero->imgNombreFisico = $imgNombreFisico;
-        $mGenero->save();
-    }
-
-
-        // Regresa a lista de productos
-        Session::flash('message', 'Género registrado');
-        return Redirect::to('Genero');
+            $imgNombreVirtual = $file->getClientOriginalName();
+            $imgNombreFisico = $mProveedor->id.'-'.$imgNombreVirtual;
+            \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
+            $mProveedor->imgNombreVirtual = $imgNombreVirtual;
+            $mProveedor->imgNombreFisico = $imgNombreFisico;
+            $mProveedor->save();
+            
+        }
+            
+        Session::flash('message', 'Proveedor registrado');
+        return Redirect::to('Proveedor');
     }
 
     /**
@@ -77,8 +72,8 @@ class generoController extends Controller
      */
     public function show($id)
     {
-        $modelo = Genero::find($id);
-        return view('Genero.show', ["modelo" => $modelo]);
+        $Proveedor = Proveedor::find($id);
+        return view('Proveedor.show', ["modelo" => $modelo]);
     }
 
     /**
@@ -89,9 +84,9 @@ class generoController extends Controller
      */
     public function edit($id)
     {
-         $modelo = Genero::find($id);
-        $tableGenero = Genero::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('Genero.edit', ["modelo" => $modelo, "tableGenero"=>$tableGenero]);
+        $modelo = Proveedor::find($id);
+        $tableProveedor = Proveedor::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Proveedor.edit', ["modelo" => $modelo, "tableProveedor"=>$tableProveedor]);
     }
 
     /**
@@ -108,22 +103,22 @@ class generoController extends Controller
  
         ]);
 
-        $mGenero = Genero::find($id);
-        $mGenero->fill($request->all());
+        $mProveedor = Proveedor::find($id);
+        $mProveedor->fill($request->all());
 
-        $mGenero->save();
+        $mProveedor->save();
         
         $file = $request->file('imagen');
         if($file){
         $imgNombreVirtual = $file->getClientOriginalName();
-        $imgNombreFisico = $mGenero->id.'-'.$imgNombreVirtual;
+        $imgNombreFisico = $mProveedor->id.'-'.$imgNombreVirtual;
         \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
-        $mGenero->imgNombreVirtual = $imgNombreVirtual;
-        $mGenero->imgNombreFisico = $imgNombreFisico;
-        $mGenero->save();
+        $mProveedor->imgNombreVirtual = $imgNombreVirtual;
+        $mProveedor->imgNombreFisico = $imgNombreFisico;
+        $mProveedor->save();
         }
-        Session::flash('message', 'Género actualizado');
-        return Redirect::to('Genero');
+        Session::flash('message', 'Proveedor actualizado');
+        return Redirect::to('Proveedor');
     }
 
     /**
@@ -134,9 +129,9 @@ class generoController extends Controller
      */
     public function destroy($id)
     {
-        $mGenero = Genero::find($id);
+        $mGenero = Proveedor::find($id);
         $mGenero->delete();
-        Session::flash('message', 'Género eliminado');
-        return Redirect::to('Genero');
+        Session::flash('message', 'Proveedor eliminado');
+        return Redirect::to('Proveedor');
     }
 }

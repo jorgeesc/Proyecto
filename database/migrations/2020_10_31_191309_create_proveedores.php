@@ -15,8 +15,12 @@ class CreateProveedores extends Migration
     {
         Schema::create('proveedores', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',100);
+            $table->string('nombre');
             $table->timestamps();
+        });
+
+        Schema::table('juegos', function (Blueprint $table){
+            $table->unsignedBigInteger('proveedor_id');
         });
     }
 
@@ -27,6 +31,10 @@ class CreateProveedores extends Migration
      */
     public function down()
     {
+        Schema::table('juegos',function(Blueprint $table){
+            $table->dropColumn('proveedor_id');
+        });
+
         Schema::dropIfExists('proveedores');
     }
 }

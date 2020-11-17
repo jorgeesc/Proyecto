@@ -4,22 +4,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Género') }}</div>
+                <div class="card-header">{{ __('Proveedor') }}</div>
 <div class="card-body">
 
 
-<a href="{{ URL::to('Genero') }}">Regresar</a> <br> <br>
+<a href="{{ URL::to('Proveedor') }}">Regresar</a> <br> <br>
 
 <h5>Formulario de creación</h5>
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'Genero', 'enctype' => 'multipart/form-data')) }}
+{{ Form::open(array('url' => 'Proveedor', 'enctype' => 'multipart/form-data')) }}
 
 <div class="row">
 
 <div class="form-group col-md-4">
-        {{ Form::label('nombre', 'Nombre de género') }}
+        {{ Form::label('nombre', 'Nombre de proveedor') }}
         {{ Form::text('nombre', Request::old('nombre'),
            array('class' => 'form-control', 'required'=>true, 'maxlength'=> 30)) }}
     </div>
@@ -31,7 +31,7 @@
 
 </div>
 
-    {{ Form::submit('Registrar Género', ['class' => 'btn btn-primary'] ) }}
+    {{ Form::submit('Registrar Proveedor', ['class' => 'btn btn-primary'] ) }}
 
 {{ Form::close() }}
 </div>

@@ -34,6 +34,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Genero.index') }}">Género</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Proveedor.index') }}">Proveedor</a></li>
                         
                         @else                        
                         
