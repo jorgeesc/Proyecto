@@ -44,7 +44,9 @@ class noticiasController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
+            'nombre' => 'required|min:5|max:200',
             'descripcion' => 'required|min:5|max:200',
             'fuente' => 'required|min:5|max:200'
         ]);
@@ -88,7 +90,7 @@ class noticiasController extends Controller
     public function edit($id)
     {
         $modelo = Noticias::find($id);
-        $tableNoticias = Noticias::orderBy('descripcion')->get()->pluck('descripcion','id');
+        $tableNoticias = Noticias::orderBy('nombre')->get()->pluck('nombre','id');
         return view('Noticias.edit', ["modelo" => $modelo, "tableNoticias"=>$tableNoticias]);
     }
 
@@ -102,6 +104,7 @@ class noticiasController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
+            'nombre' => 'required|min:5|max:200',
             'descripcion' => 'required|min:5|max:200',
             'fuente' => 'required|min:5|max:200'
  

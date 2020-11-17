@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -24,6 +25,7 @@
         </tr>
     </thead>
     <tbody>
+        <tr><td>''Título</td><td>{{$modelo->nombre}}</td></tr>
             <tr><td> Descripcion de la Noticia </td> <td>{{$modelo->descripcion}}</td></tr>
         <tr><td> Fuente </td> <td>{{$modelo->fuente}}</td></tr>
             <tr><td> Fecha de registro </td> <td>{{$modelo->created_at}}</td></tr>

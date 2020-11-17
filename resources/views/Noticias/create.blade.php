@@ -19,6 +19,12 @@
 
 <div class="row">
 
+    <div class="form-group col-md-4">
+        {{ Form::label('nombre', 'Título') }}
+        {{ Form::textArea('nombre', Request::old('nombre'),
+           array('class' => 'form-control', 'required'=>true, 'maxlength'=> 200)) }}
+    </div> <br> <br>
+
 <div class="form-group col-md-4">
         {{ Form::label('descripcion', 'Descripcion de noticia') }}
         {{ Form::textArea('descripcion', Request::old('descripcion'),
