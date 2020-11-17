@@ -31,6 +31,7 @@
             <tr><td> Estatus </td> <td> @if($modelo->status) Sí @else No @endif </td></tr>
             <tr><td> Stock </td> <td>{{$modelo->stock}}</td></tr>
             <tr><td> Género </td> <td>{{$modelo->getGenero->nombre}}</td></tr>
+            <tr><td> Proveedor </td> <td>{{$modelo->getProveedor->nombre}}</td></tr>
             <tr><td> Fecha de registro </td> <td>{{$modelo->created_at}}</td></tr>
             <tr><td> Fecha de modificación </td> <td>{{$modelo->updated_at}}</td></tr>
     </tbody>

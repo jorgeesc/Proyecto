@@ -33,6 +33,7 @@
             <th>status</th>
             <th>stock</th>
             <th>Portada</th>
+             <th>Proveedor</th>
             <th>Género</th>
         </tr>
     </thead>
@@ -50,7 +51,7 @@
                 <td>
                         <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" width="30%">
                     </td>
-
+                <td>{{$rowJuegos->getProveedor->nombre}}</td>
                 <td>{{$rowJuegos->getGenero->nombre}}</td>
             </tr>
         @endforeach

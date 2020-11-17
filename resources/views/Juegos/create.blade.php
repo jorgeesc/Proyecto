@@ -60,6 +60,12 @@
            array('class' => 'form-control')) }}
     </div>
 
+    <div class="form-group col-md-3">
+        {{ Form::label('proveedor_id', 'Proveedor del Juego') }}
+        {{ Form::select('proveedor_id', $tableJuegosP, Request::old('proveedor_id'),  
+           array('class' => 'form-control')) }}
+    </div>
+
 </div>
 
     {{ Form::submit('Registrar Juego', ['class' => 'btn btn-primary'] ) }}

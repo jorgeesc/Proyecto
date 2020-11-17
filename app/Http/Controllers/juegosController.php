@@ -8,6 +8,7 @@ use Session;
 Use Redirect;
 use Illuminate\Support\Facades\DB;
 use App\Models\Juegos;
+use App\Models\Proveedor;
 use App\Models\Genero;
 
 
@@ -29,6 +30,7 @@ class juegosController extends Controller
         ->select('juegos.*', 'genero.nombre as genero')
         ->get();
 
+
         $whereClause = [];
 		if($request->nombre){
 			array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
@@ -48,7 +50,9 @@ class juegosController extends Controller
     public function create()
     {
         $tableJuegos = Genero::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('Juegos.create',[ 'tableJuegos' => $tableJuegos]);
+        $tableJuegosP = Proveedor::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Juegos.create',[ 'tableJuegos' => $tableJuegos, 'tableJuegosP' => $tableJuegosP]);
+
     }
 
     /**
@@ -114,7 +118,8 @@ class juegosController extends Controller
     {
         $modelo = Juegos::find($id);
         $tableJuegos = Genero::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('Juegos.edit', ["modelo" => $modelo, "tableJuegos"=>$tableJuegos]);
+        $tableJuegosP = Proveedor::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Juegos.edit', ["modelo" => $modelo, "tableJuegos"=>$tableJuegos, 'tableJuegosP' => $tableJuegosP]);
     }
 
     /**
@@ -131,7 +136,8 @@ class juegosController extends Controller
             'descripcion' => 'required|min:10|max:1000',
             'precio' => 'required|numeric|min:0',
             'stock' => 'required|min:1|max:4',
-            'genero_id' => 'required|exists:genero,id'
+            'genero_id' => 'required|exists:genero,id',
+            'proveedor_id' => 'required|exists:proveedores,id'
             
         ]);
 
