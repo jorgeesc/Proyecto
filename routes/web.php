@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('Genero', 'generoController');
     Route::resource('Noticias', 'noticiasController');
     Route::resource('Proveedor', 'proveedorController');
+    
    
 });
 

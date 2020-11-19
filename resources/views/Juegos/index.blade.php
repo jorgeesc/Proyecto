@@ -67,65 +67,16 @@
 
 @else
 
-
-<section class="">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../resources/views/Juegos/Slider/01.jpg" class="d-block w-40 h-40" alt="50px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Chibas Campion del mundo, abajo los poyos</h5>
-        <p>Arriba las chibas carnal, deja agarro señal.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../resources/views/Juegos/Slider/02.png" class="d-block w-40 h-4x0" alt="50px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../resources/views/Juegos/Slider/03.png" class="d-block w-40 h-4x0" alt="50px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="../resources/views/Juegos/Slider/04.png" class="d-block w-40 h-4x0" alt="50px">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        
+            <div class="card">
+                <center><div class="card-header"><h1>{{ __('Catálogo de Juegos') }}</h1></div></center>
+<div class="card-body">
+<div class ="row">
     
-    <div class="carousel-item">
-      <img src="../resources/views/Juegos/Slider/05.png" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div><br><br>
-</section>
-
-
  @foreach($tableJuegos as $rowJuegos)
+    <div class="col-md-6">
 <center><figure class="figure">
   <a href="{{route('Juegos.show', $rowJuegos->id)}}" data-size="1200x1017"><h1>{{$rowJuegos->nombre}}</h1>
   <img src="{{ asset('storage/'.$rowJuegos->imgNombreFisico )}}" class="figure-img img-fluid rounded" width="90%" height="100px" alt="...">  
@@ -135,8 +86,19 @@
 <h6>{{$rowJuegos->precio}}</h6>
 <h6>{{$rowJuegos->genero}}</h6>
 </center>
+                
 
+<a href="{{ url('add-to-cart/'.$rowJuegos->id )}}" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Agregar al carrito </a>
+
+<a href="{{route('Juegos.show', $rowJuegos->id)}}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Detalle de juego </a>
+                </div>
+                
 @endforeach
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
