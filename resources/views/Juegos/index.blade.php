@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Juegos') }}</div>
 <div class="card-body">
@@ -74,7 +74,7 @@
                 <center><div class="card-header"><h1>{{ __('Catálogo de Juegos') }}</h1></div></center>
 <div class="card-body">
 <div class ="row">
-    
+
  @foreach($tableJuegos as $rowJuegos)
     <div class="col-md-6">
 <center><figure class="figure">
@@ -83,16 +83,22 @@
 </figure>
 </a>
 
-<h6>{{$rowJuegos->precio}}</h6>
 <h6>{{$rowJuegos->genero}}</h6>
+<td>
+{{ Form::open(['url' => 'agregarCarrito'] ) }}
+{{ Form::hidden('id', $rowJuegos->id ,
+array('class' => 'form-control')) }} <br>
+{{ Form::text('cantidad', 0 ,
+array('class' => 'form-control', 'required'=>true)) }} <br>
+{{ Form::submit('Agregar al carrito',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
+{{ Form::close()}}
+</td>
 </center>
-                
-
-<a href="{{ url('add-to-cart/'.$rowJuegos->id )}}" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Agregar al carrito </a>
-
+<br>                
 <a href="{{route('Juegos.show', $rowJuegos->id)}}" class="btn btn-secondary btn-lg btn-block" role="button" aria-pressed="true">Detalle de juego </a>
                 </div>
-                
+        
+        
 @endforeach
     </div>
             </div>

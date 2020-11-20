@@ -178,57 +178,19 @@ class juegosController extends Controller
         Session::flash('message', 'Juego eliminado');
         return Redirect::to('Juegos');
     }
-    
-   /* public function cart($id)
-    {
-        
-       return view('Juegos.cart');
-    }
-    
-    public function addToCart ($id)
-    {
-        $modelo = Juegos::find($id);
-        $cart = Session()->get('cart');
-        
-        if(!$cart){
-            
-            $cart = [
-                $id =>[
-                'nombre' => $modelo->nombre,
-                'descripcion' => $modelo->descripcion,
-                'precio' => $modelo->precio ,
-                'stock' =>  1
-                    
-                    ]
-            ];
-             
-            ession()->put('cart', $cart);
-            Session::flash('message', 'Juego Agregado');
-            return Redirect::to('Juegos');
-            
+    public function agregarCarrito(Request $request) {
+        $carrito = $request->session()->get('carrito');
+        if(!$carrito){
+        $carrito = [];
+        }
+        array_push($carrito, [
+        'id' => $request->id,
+        'cantidad' => $request->cantidad
+        ] );
+        $request->session()->put('carrito', $carrito);
+        echo var_dump($carrito);
         }
         
-        if(isset($cart[$id])){
-            
-            $cart[$id]['stock']++;
-            
-            Session::flash('message', 'Juego Agregado');
-            return Redirect::to('Juegos');
-        }
-        
-        $cart [$id] = [
-            'nombre' => $modelo->nombre,
-            'descripcion' => $modelo->descripcion,
-            'precio' => $modelo->precio ,
-            'stock' =>  1
-        ];
-        Session::flash('message', 'Juego Agregado');
-            return Redirect::to('Juegos'); 
-        
-        
-        
-        
-    }*/
        
     
 }

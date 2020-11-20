@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('Genero', 'generoController');
     Route::resource('Noticias', 'noticiasController');
     Route::resource('Proveedor', 'proveedorController');
+
+    Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
+->name('agregarCarrito');
     
    
 });
