@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -36,6 +39,8 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('Genero', 'generoController');
     Route::resource('Noticias', 'noticiasController');
     Route::resource('Proveedor', 'proveedorController');
+    Route::resource('Conocenos', 'ConocenosController');
+
 
     Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
 ->name('agregarCarrito');

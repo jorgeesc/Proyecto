@@ -40,7 +40,7 @@
                         
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Conocenos</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Conocenos.index') }}">Conocenos</a></li>
                         
                         @endif
                           @guest
