@@ -66,6 +66,12 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar sesión') }}
                                     </a>
+                                    <!-- {{Auth::user()->id}} -->
+                                    <a class="dropdown-item" href=""
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Editar perfil') }}
+                                    </a>
                                     
                                     </a>
 
