@@ -101,6 +101,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($id==2) {
         $validatedData = $request->validate([
             'name' => 'required|min:2|max:30',
             'password' => 'min:5|max:10',
@@ -119,7 +120,31 @@ class UserController extends Controller
 
         // Regresa a lista de usuario
         Session::flash('message', 'Usuario actualizado!');
-        return Redirect::to('users');
+        return Redirect::to('users');    
+        }
+        else{
+            $validatedData = $request->validate([
+            'name' => 'required|min:2|max:30',
+            'password' => 'min:5|max:10',
+            'email' => 'required|email',
+        ]);
+
+        $mUser = UserEloquent::find($id);
+        $mUser->name = $request->name;
+        $mUser->email = $request->email;
+        $mUser->updated_at = date('Y-m-d H:i:s');
+        $mUser->rol_id = $request->rol_id;
+        if($request->password != '*****'){
+            $mUser->password = bcrypt($request->password);
+        }
+        $mUser->save();
+
+        // Regresa a lista de usuario
+        Session::flash('message', 'Perfil actualizado!');
+        $modelo = UserEloquent::find($id);
+        return view('users.show', ["modelo" => $modelo]);
+        }
+        
     }
 
     /**
