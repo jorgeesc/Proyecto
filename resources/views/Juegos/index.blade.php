@@ -78,7 +78,7 @@
 
 {{ Form::submit('Concretar venta',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
 {{ Form::close()}}
-
+<br>
  @foreach($tableJuegos as $rowJuegos)
     <div class="col-md-6">
 <center><figure class="figure">
