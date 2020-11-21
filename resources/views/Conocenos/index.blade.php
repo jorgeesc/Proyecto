@@ -50,7 +50,7 @@
       </ul>
     </nav>
     <div class="col-sm-9 col-7">
-      <div id="section1" class="bg-black" >    
+      <div id="section1" class="bg-black color" >    
         <h1>DATAPLAY</h1>
         <p>Nuestro principal interés es mantenerte informado sobre los diferentes videojuegos y las noticias más interesantes de las compañías de videojuegos más grandes del mundo. 
         En este sitio encontraras: 
@@ -61,15 +61,15 @@
         <li>Conoce los juegos mejor valorados del año. </li>
         <li>Ve lo que piensan los usuarios sobre tu juego favorito. </li>
       </div><br>
-      <div id="section2" class="bg-black"> 
+      <div id="section2" class="bg-black color"> 
         <h1>Visión</h1>
         <p>Somos un grupo de estudiantes universitarios del área de tecnologías de la información enfocados en el diseño y desarrollo web, tratando de innovar en el área del e-commerce, buscamos liderar la venta de videojuegos en línea con un sitio visualmente atractivo haciendo uso de temáticas “gaming” y que sea lo más intuitivo para el usuario.</p>
       </div>        
-      <div id="section3" class="bg-black">         
+      <div id="section3" class="bg-black color">         
         <h1>Valores</h1>
         <p>Buscamos estar bien posicionados en el e-commerce, al ser jóvenes siempre buscamos la competencia y mejorar la calidad en nuestro sitio, además de querer aprender de las nuevas tecnologías buscamos siempre estar actualizados e innovando y que nuestro trabajo genere eco en las empresas de desarrollo de videojuegos para así poder tener su confianza y nos permitan distribuir sus productos, creemos que nuestra ambición por ser los mejores es nuestra principal inspiración para llegar a serlo, buscando siempre la mejor atención para nuestros clientes.</p>
       </div>
-      <div id="section4" class="bg-black">         
+      <div id="section4" class="bg-black color">         
         <h1>Valores</h1>
         <li>Colaboración.</li>
         <li>Aprendizaje.</li>
@@ -113,6 +113,10 @@
   }
   div.col-8 div {
     height: 500px;
+  }
+
+  .color{
+  	color: white;
   }
 
   </style>
