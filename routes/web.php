@@ -42,8 +42,11 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('Conocenos', 'ConocenosController');
 
 
-    Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
+Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
 ->name('agregarCarrito');
+
+Route::post('/ConcretarVenta', 'juegosController@ConcretarVenta')
+->name('ConcretarVenta');
     
    
 });

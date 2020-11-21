@@ -74,6 +74,10 @@
                 <center><div class="card-header"><h1>{{ __('Catálogo de Juegos') }}</h1></div></center>
 <div class="card-body">
 <div class ="row">
+    {{ Form::open(['url' => 'ConcretarVenta'] ) }}
+
+{{ Form::submit('Concretar venta',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
+{{ Form::close()}}
 
  @foreach($tableJuegos as $rowJuegos)
     <div class="col-md-6">
@@ -87,7 +91,11 @@
 <td>
 {{ Form::open(['url' => 'agregarCarrito'] ) }}
 {{ Form::hidden('id', $rowJuegos->id ,
+array('class' => 'form-control')) }} 
+
+{{ Form::hidden('precio', $rowJuegos->precio ,
 array('class' => 'form-control')) }} <br>
+
 {{ Form::text('cantidad', 0 ,
 array('class' => 'form-control', 'required'=>true)) }} <br>
 {{ Form::submit('Agregar al carrito',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}

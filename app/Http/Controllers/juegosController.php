@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Juegos;
 use App\Models\Proveedor;
 use App\Models\Genero;
+use App\Models\venta;
+use App\Models\detalle_venta;
+
+
 
 
 class juegosController extends Controller
@@ -185,11 +189,63 @@ class juegosController extends Controller
         }
         array_push($carrito, [
         'id' => $request->id,
-        'cantidad' => $request->cantidad
+        'cantidad' =>intval($request->cantidad),
+        'precio' => intval($request->precio) 
         ] );
         $request->session()->put('carrito', $carrito);
-        echo var_dump($carrito);
+        // echo var_dump($carrito);
+
+        return Redirect::to('Juegos');
         }
+
+
+        public function ConcretarVenta(Request $request) {
+        $carrito = $request->session()->get('carrito');
+        if(!$carrito){
+        $carrito = [];
+        }
+
+// registro de la venta
+// validacion de existencias
+        $venta=new venta();
+        $venta->user_id=\Auth::user()->id;
+        $venta->total=0;
+        $venta->save();
+
+        
+// if($usrExistente){
+//             return Redirect()->route('users.create')->withErrors(['email' => 'Mi error'])->withInput();
+//         }
+
+
+        foreach ($carrito as $value) {
+            $detalle_venta=new detalle_venta();
+            $detalle_venta->cantidad=$value['cantidad'];
+            $detalle_venta->juegos_id=$value['id'];
+            $detalle_venta->venta_id=$venta->id;
+            $detalle_venta->precio=$value['precio'];
+            $detalle_venta->save();
+
+            $venta->total+=($value['precio']*$value['cantidad']);
+
+
+            $juego=Juegos::find($value['id']);
+            $juego->stock-=($value['cantidad']);
+            $juego->save();
+        }
+
+
+
+        $venta->save();
+//descontar del inventario 
+
+        $request->session()->put('carrito',[]);
+        // echo var_dump($carrito);
+
+        return Redirect::to('Juegos');
+        }
+
+
         
        
     
