@@ -1,48 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-
-            <td>
-            	<tr>Nuestro principal interés es mantenerte informado
-					sobre los diferentes videojuegos y las noticias mas
-					interesantes de las compañías de videojuegos mas
-grandes del mundo.
-En este sitio encontraras:
-Mantente informado sobre tus títulos favoritos.</tr>
-
-            </td>	
-                
-<div class="card-body">
-</div>
-</div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="container">
     <div class="row justify-content-center">
@@ -60,19 +18,7 @@ Mantente informado sobre tus títulos favoritos.</tr>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
-  body {
-    position: relative;
-  }
-  ul.nav-pills {
-    top: 350px;
-    position: fixed;
-  }
-  div.col-8 div {
-    height: 500px;
-  }
 
-  </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 
@@ -132,6 +78,35 @@ Mantente informado sobre tus títulos favoritos.</tr>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+  body {
+    position: relative;
+  }
+  ul.nav-pills {
+    top: 350px;
+    position: fixed;
+  }
+  div.col-8 div {
+    height: 500px;
+  }
+
+  </style>
 
 </body>
 
