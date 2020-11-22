@@ -71,7 +71,7 @@
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">DATA PLAY</h1>
+                    <h1 class="mx-auto my-0 text-uppercase">DATAPLAY</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">Pagina de administrador.</h2>
                   
                 </div>
@@ -89,7 +89,7 @@
         <!-- @yield('content') -->
         <!--  -->
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Your Website 2020</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © DATAPLAY 2020</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>

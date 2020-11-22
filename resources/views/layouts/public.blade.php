@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Grayscale - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <title>Dataplay: Sistema y gestión de videojuegos</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/DATAPLAY.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -28,9 +28,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Juegos</a></li>
-                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Noticias</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Conocenos</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"></a></li>
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup"></a></li>
                      
                         
                           @guest
@@ -70,8 +70,8 @@
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">DATA PLAY</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Pagina de publica.</h2>
+                    <h1 class="mx-auto my-0 text-uppercase">DATAPLAY</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Aquí comienza el juego...</h2>
                   
                 </div>
             </div>
@@ -86,9 +86,8 @@
         </section>
 
         <!-- @yield('content') -->
-        <!--  -->
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Your Website 2020</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © DATAPLAY 2020</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
