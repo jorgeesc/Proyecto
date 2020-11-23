@@ -4,22 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Session;
 Use Redirect;
+use Illuminate\Support\Facades\DB;
 use App\Models\Juegos;
 use App\Models\Proveedor;
 use App\Models\Genero;
 use App\Models\venta;
 use App\Models\detalle_venta;
+use App\Http\Controllers\juegosController;
 
-class Detalle_VentasController extends Controller
+
+class CarritoController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth'); 
-    }
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +24,7 @@ class Detalle_VentasController extends Controller
      */
     public function index()
     {
-    
-     $tableDetalleVentas= detalle_venta::all();
-        return view('DetalleVentas.index',["tableDetalleVentas" => $tableDetalleVentas]);
+        return view('Carrito.index');
     }
 
     /**
@@ -97,4 +92,7 @@ class Detalle_VentasController extends Controller
     {
         //
     }
+
+
+    
 }

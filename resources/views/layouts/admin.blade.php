@@ -43,6 +43,8 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Conocenos.index') }}">Conocenos</a></li>
+
+                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Carrito.index') }}">Carrito</a></li>
                         
                         @endif
                           @guest
@@ -65,6 +67,10 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{route('users.show', \Auth::user()->id)}}";>
                                         {{ __('Perfil') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{route('Ventas.index', \Auth::user()->id)}}";>
+                                        {{ __('M Compras') }}
                                     </a>
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"

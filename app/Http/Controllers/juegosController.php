@@ -212,6 +212,8 @@ class juegosController extends Controller
         $venta->total=0;
         $venta->save();
 
+
+
         
 // if($usrExistente){
 //             return Redirect()->route('users.create')->withErrors(['email' => 'Mi error'])->withInput();
@@ -244,6 +246,8 @@ class juegosController extends Controller
 
         return Redirect::to('Juegos');
         }
+
+
 
 
         

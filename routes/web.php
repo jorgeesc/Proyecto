@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('Conocenos', 'ConocenosController');
     Route::resource('Ventas', 'VentasController');
     Route::resource('DetalleVentas', 'Detalle_VentasController');
+    Route::resource('Carrito', 'CarritoController');
 
 
 Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
@@ -49,7 +50,8 @@ Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
 
 Route::post('/ConcretarVenta', 'juegosController@ConcretarVenta')
 ->name('ConcretarVenta');
-    
+
+
    
 });
 

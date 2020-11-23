@@ -101,7 +101,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if ($id==2) {
+        if ($request->rol_id==2) {
         $validatedData = $request->validate([
             'name' => 'required|min:2|max:30',
             'password' => 'min:5|max:10',

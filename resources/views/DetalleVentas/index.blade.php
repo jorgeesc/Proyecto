@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -19,6 +20,7 @@
             <th>Juego</th>
             <th>Venta Total</th>
             <th>ID de venta</th>
+       
         </tr>
     </thead>
     <tbody>
@@ -47,6 +49,8 @@
                 <td>
                     {{$rowDetalleVenta->venta_id}}
                 </td>
+
+              
             </tr>
 
         
@@ -58,5 +62,8 @@
         </div>
     </div>
 </div>
+
+
+
 
 @endsection

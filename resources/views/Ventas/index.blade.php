@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Ventas') }}</div>
+                <div class="card-header">{{ __('Compras') }}</div>
 <div class="card-body">
 
 @if(Session::has('message'))
@@ -14,8 +14,8 @@
     <thead>
         <tr>
             <th>total</th>
-            <th>status</th>
             <th>ID del usuario</th>
+            <th>Usuario</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
                 </td>
 
                 <td>
-                    {{$rowVenta->user_id}}
+                    {{$rowVenta->getUsu->name}}
                 </td>
             </tr>
         @endforeach
