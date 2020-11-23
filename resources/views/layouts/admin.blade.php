@@ -35,6 +35,8 @@
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Genero.index') }}">Género</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Proveedor.index') }}">Proveedor</a></li>
+
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('DetalleVentas.index') }}">Detalle de ventas</a></li>
                         
                         @else                        
                         

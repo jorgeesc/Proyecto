@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('Noticias', 'noticiasController');
     Route::resource('Proveedor', 'proveedorController');
     Route::resource('Conocenos', 'ConocenosController');
+    Route::resource('Ventas', 'VentasController');
+    Route::resource('DetalleVentas', 'Detalle_VentasController');
 
 
 Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
