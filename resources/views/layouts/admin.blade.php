@@ -36,9 +36,12 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Genero.index') }}">Género</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Proveedor.index') }}">Proveedor</a></li>
 
+
+
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('DetalleVentas.index') }}">Detalle venta</a></li>
                         
-                        @else                        
+                        @else
+
                         
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Juegos.index') }}">Juegos</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('Noticias.index') }}">Noticias</a></li>
@@ -106,9 +109,6 @@
             </div>
         </section>
 
-        <!-- @yield('content') -->
-        <!--  -->
-        <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © DATAPLAY 2020</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

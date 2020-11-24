@@ -215,9 +215,11 @@ class juegosController extends Controller
 
 
         
-// if($usrExistente){
-//             return Redirect()->route('users.create')->withErrors(['email' => 'Mi error'])->withInput();
-//         }
+ // $stockExistente = Juegos::where('stock', $request->stock)->all(); 
+        
+ //        if($stockExistente <= 0){
+ //            return Redirect()->route('Juegos.index')->withErrors(['Stock' => 'No hay existencias'])->withInput();
+ //        }
 
 
         foreach ($carrito as $value) {

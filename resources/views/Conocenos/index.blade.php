@@ -1,26 +1,20 @@
 @extends('layouts.admin')
 @section('content')
 
+<head>
+  <title>Conocenos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 <div class="container ">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card bg-black color">
                 <div class="card-header"><h1><center>{{ __('FILOSOFÍA') }}</center></h1></div>
 <div class="card-body ">
-
-<html lang="en">
-<head>
-  <title>Conocenos</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 
 <div class="container-fluid bg-black color" >
   <div class="row">
@@ -90,7 +84,20 @@
 </div>
 
 </body>
-</html>
+
+
+@endsection
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -149,7 +156,3 @@
 
   </style>
 
-</body>
-
-
-@endsection
