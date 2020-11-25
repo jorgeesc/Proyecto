@@ -187,6 +187,11 @@ class juegosController extends Controller
         if(!$carrito){
         $carrito = [];
         }
+
+        if($request->cantidad <1){
+            return Redirect()->route('Carrito.index')->withErrors(['Stock' => 'La cantidad minima debe de ser 1 '])->withInput();
+            }
+
         array_push($carrito, [
         'id' => $request->id,
         'cantidad' =>intval($request->cantidad),
@@ -196,6 +201,8 @@ class juegosController extends Controller
         // echo var_dump($carrito);
 
         return Redirect::to('Juegos');
+
+
         }
 
 
@@ -206,6 +213,18 @@ class juegosController extends Controller
         }
 
 // registro de la venta
+
+        foreach ($carrito as $value) {
+           
+
+            $juego=Juegos::find($value['id']);
+            $juego->stock-=($value['cantidad']);
+
+            if($juego->stock <0){
+            return Redirect()->route('Carrito.index')->withErrors(['Stock' => 'No hay existencias suficientes del producto '.$juego->nombre])->withInput();
+            }
+    
+        }
 // validacion de existencias
         $venta=new venta();
         $venta->user_id=\Auth::user()->id;
@@ -217,9 +236,7 @@ class juegosController extends Controller
         
  // $stockExistente = Juegos::where('stock', $request->stock)->all(); 
         
- //        if($stockExistente <= 0){
- //            return Redirect()->route('Juegos.index')->withErrors(['Stock' => 'No hay existencias'])->withInput();
- //        }
+        
 
 
         foreach ($carrito as $value) {

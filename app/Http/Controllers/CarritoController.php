@@ -22,9 +22,16 @@ class CarritoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('Carrito.index');
+        $carrito = $request->session()->get('carrito');
+        if(!$carrito){
+        $carrito = [];
+        }
+
+        return view('Carrito.index',["carrito"=>$carrito]);
+
+
     }
 
     /**
@@ -90,7 +97,10 @@ class CarritoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carrito = Session::find($id);
+        $carrito->delete();
+        Session::flash('message', 'Produto eliminado');
+        return Redirect::to('Carrito');
     }
 
 

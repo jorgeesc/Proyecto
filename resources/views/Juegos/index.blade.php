@@ -106,10 +106,7 @@ array('class' => 'form-control', 'required'=>true)) }} <br>
         
 @endforeach
 
-    {{ Form::open(['url' => 'ConcretarVenta'] ) }} <br>
 
-{{ Form::submit('Concretar venta',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
-{{ Form::close()}} <br><br>
     </div>
             </div>
         </div>
