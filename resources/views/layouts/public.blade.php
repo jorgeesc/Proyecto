@@ -27,13 +27,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"></a></li>
-                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects"></a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup"></a></li>
+                 
                      
                         
                           @guest
+                           
+
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -41,6 +41,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
+
+                             
                             @endif
                         @else
                            

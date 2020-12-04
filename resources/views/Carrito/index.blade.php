@@ -16,7 +16,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>id</th>
+            <th>Producto</th>
             <th>precio</th>
             <th>cantidad</th>
             <th>Quitar</th>
@@ -26,9 +26,11 @@
     <tbody>
         @foreach($carrito as $rowcarro)
         <tr>
-            <td>{{$rowcarro['id']}}</td>
+            <td>{{$rowcarro['nombre']}}</td>
             <td>{{$rowcarro['precio']}}</td>
             <td>{{$rowcarro['cantidad']}}</td>
+
+
             <td>{{ Form::submit('X', array('class' => 'btn btn-danger')) }}</td>
         </tr>
 

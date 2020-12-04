@@ -67,6 +67,10 @@
 
 @else
 
+@if(Session::has('message'))
+      {{ Session::get('message') }} <br><br>
+@endif
+
 <div class="container">
     <div class="row justify-content-center">
         
@@ -88,14 +92,17 @@
 <td>
 {{ Form::open(['url' => 'agregarCarrito'] ) }}
 {{ Form::hidden('id', $rowJuegos->id ,
-array('class' => 'form-control')) }} 
+array('class' => 'form-control')) }}
+
+{{ Form::hidden('nombre', $rowJuegos->nombre ,
+array('class' => 'form-control'))}} <br>  
 
 {{ Form::hidden('precio', $rowJuegos->precio ,
 array('class' => 'form-control')) }} <br>
 
-{{ Form::text('cantidad', 0 ,
+{{ Form::text('cantidad', 1 ,
 array('class' => 'form-control', 'required'=>true)) }} <br>
-{{ Form::submit('Agregar al carrito',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
+{{ Form::submit('Agregar al carrito',['class' => 'btn btn-primary btn-lg btn-block', 'data-toggle'=>"modal",'data-target'=>"#exampleModal" , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
 {{ Form::close()}}
 </td>
 </center>
@@ -113,6 +120,31 @@ array('class' => 'form-control', 'required'=>true)) }} <br>
     </div>
 </div>
 
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Catalogo de juegos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Juego agregado con exito!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

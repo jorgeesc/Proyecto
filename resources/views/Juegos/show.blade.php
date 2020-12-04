@@ -54,11 +54,11 @@
                 <h1><div class="card-header">{{$modelo->nombre}}</div></h1>
 <div class="card-body">
 
-          <center><td><img src="{{ asset('storage/'.$modelo->imgNombreFisico )}}" width="90%"></td></center>
-             Descripción </td> <td>{{$modelo->descripcion}}<br>
-             Precio </td> <td>{{$modelo->precio}}<br>
-             Stock </td> <td>{{$modelo->stock}}<br>
-             Género </td> <td>{{$modelo->getGenero->nombre}}<br>
+          <center><td><img src="{{ asset('storage/'.$modelo->imgNombreFisico )}}" width="90%"></td></center><br>
+            <h5>Descripción:</td> <td>{{$modelo->descripcion}}<br></h5>
+             <h5>Precio: </td> <td>{{$modelo->precio}}<br></h5>
+             <h5>Stock: </td> <td>{{$modelo->stock}}<br></h5>
+             <h5>Género: </td> <td>{{$modelo->getGenero->nombre}}<br></h5>
              
 
 

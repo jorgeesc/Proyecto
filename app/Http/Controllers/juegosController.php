@@ -195,11 +195,13 @@ class juegosController extends Controller
         array_push($carrito, [
         'id' => $request->id,
         'cantidad' =>intval($request->cantidad),
-        'precio' => intval($request->precio) 
+        'precio' => intval($request->precio),
+        'nombre' => $request->nombre
         ] );
         $request->session()->put('carrito', $carrito);
         // echo var_dump($carrito);
 
+        Session::flash('message', 'Juego agregado');
         return Redirect::to('Juegos');
 
 
@@ -231,15 +233,7 @@ class juegosController extends Controller
         $venta->total=0;
         $venta->save();
 
-
-
-        
- // $stockExistente = Juegos::where('stock', $request->stock)->all(); 
-        
-        
-
-
-        foreach ($carrito as $value) {
+      foreach ($carrito as $value) {
             $detalle_venta=new detalle_venta();
             $detalle_venta->cantidad=$value['cantidad'];
             $detalle_venta->juegos_id=$value['id'];
@@ -263,7 +257,9 @@ class juegosController extends Controller
         $request->session()->put('carrito',[]);
         // echo var_dump($carrito);
 
+        Session::flash('message', 'Venta concretada');
         return Redirect::to('Juegos');
+
         }
 
 

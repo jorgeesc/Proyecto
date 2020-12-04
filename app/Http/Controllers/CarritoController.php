@@ -24,6 +24,8 @@ class CarritoController extends Controller
      */
     public function index(Request $request)
     {
+
+
         $carrito = $request->session()->get('carrito');
         if(!$carrito){
         $carrito = [];
@@ -63,7 +65,7 @@ class CarritoController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
