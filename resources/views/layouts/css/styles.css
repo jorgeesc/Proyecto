@@ -4055,7 +4055,7 @@ input[type=button].btn-block {
 .navbar {
   position: relative;
   display: flex;
-  background-color: rgba(253, 35, 209, 0.45);
+  background-color: rgba(200, 35, 209, 0.45);
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -10230,7 +10230,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/bg-masthead.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
