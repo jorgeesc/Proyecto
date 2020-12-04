@@ -106,5 +106,19 @@ class CarritoController extends Controller
     }
 
 
+    public function quitarCarrito(Request $request) {
+        $carrito = $request->session()->get('carrito');
+        if(!$carrito){
+        $carrito = [];
+        }
+        $request->session()->forget('carrito', $carrito);
+        // echo var_dump($carrito);
+
+        return Redirect::to('Carrito');
+
+
+        }
+
+
     
 }

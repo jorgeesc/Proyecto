@@ -7,11 +7,15 @@
                 <div class="card-header">{{ __('Detalle de Compras') }}</div>
 <div class="card-body">
 
+<div>
+<h5>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
 
 {{HTML::ul($errors->all())}}
+</h5>
+</div>
 
 <table class="table table-striped">
     <thead>
@@ -19,7 +23,6 @@
             <th>Producto</th>
             <th>precio</th>
             <th>cantidad</th>
-            <th>Quitar</th>
          
         </tr>
     </thead>
@@ -31,7 +34,7 @@
             <td>{{$rowcarro['cantidad']}}</td>
 
 
-            <td>{{ Form::submit('X', array('class' => 'btn btn-danger')) }}</td>
+    
         </tr>
 
 
@@ -44,7 +47,13 @@
     {{ Form::open(['url' => 'ConcretarVenta'] ) }} <br>
 
 {{ Form::submit('Concretar venta',['class' => 'btn btn-primary btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
-{{ Form::close()}} <br><br>
+{{ Form::close()}} <br>
+
+
+{{ Form::open(['url' => 'quitarCarrito'] ) }}
+
+{{ Form::submit('Vaciar Carrito',['class' => 'btn btn-danger btn-lg btn-block' , 'role' => 'button' , 'aria-pressed' => 'true'] ) }}
+{{ Form::close()}}
 </div>
                 </div>
         </div>

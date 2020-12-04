@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Detalle de Ventas') }}</div>
+                <div class="card-header">{{ __('Ventas') }}</div>
 <div class="card-body">
 
 @if(Session::has('message'))
@@ -14,7 +14,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>id</th>
+  
             <th>precio</th>
             <th>cantidad</th>
             <th>Juego</th>
@@ -26,9 +26,6 @@
     <tbody>
         @foreach($tableDetalleVentas as $rowDetalleVenta)
             <tr>
-                <td>
-                    {{$rowDetalleVenta->id}}
-                </td>
 
                 <td>
                     {{$rowDetalleVenta->precio}}

@@ -54,6 +54,9 @@ Route::post('/agregarCarrito', 'juegosController@agregarCarrito')
 Route::post('/ConcretarVenta', 'juegosController@ConcretarVenta')
 ->name('ConcretarVenta');
 
+Route::post('/quitarCarrito', 'CarritoController@quitarCarrito')
+->name('quitarCarrito');
+
 
    
 });
