@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dataplay: Sistema y gestión de videojuegos</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/DATAPLAY.ico" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/DATAPLAY.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->

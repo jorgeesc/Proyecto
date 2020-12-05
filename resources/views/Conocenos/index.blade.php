@@ -46,18 +46,26 @@
     <div class="col-sm-9 col-7">
       <div id="section1" class="bg-black color" >    
         <h1>DATAPLAY</h1>
-        <p>Nuestro principal interés es mantenerte informado sobre los diferentes videojuegos y las noticias más interesantes de las compañías de videojuegos más grandes del mundo. 
-        En este sitio podras: 
+        <p>Nuestro principal interés es mantenerte informado sobre 
+        los diferentes videojuegos y las noticias más interesantes 
+        de las compañías de videojuegos más grandes del mundo. 
+        En este sitio podras:
+
+
+ 
+
+
+ 
         </p>
+        <li>Contenido útil y fácil de entender.</li>
+        <li>Visualización en diferentes dispositivos (adaptable).</li>
         <li>Mantente informado sobre tus títulos favoritos.</li>
         <li>Encuentra los juegos de tu agrado.</li>
-        <li>Comenta y valora los títulos según tu agrado.</li>
-        <li>Conoce los juegos mejor valorados del año. </li>
-        <li>Ve lo que piensan los usuarios sobre tu juego favorito. </li><br>
+        <li>Las noticias de mayor relevancia entorno a los videojuegos.</li><br>
       </div><br>
       <div id="section2" class="bg-black color"> 
         <h1>Nuestro logo</h1><br>
-        <center><img src="../public/assets/img/DATAPLAY.png" alt="" style="padding:5px; margin:5px; width:300px; height:300px;"></center><br>
+        <center><img src="../assets/img/DATAPLAY.png" alt="" style="padding:5px; margin:5px; width:300px; height:300px;"></center><br>
       </div><br> 
       <div id="section3" class="bg-black color"> 
         <h1>Misión</h1>
