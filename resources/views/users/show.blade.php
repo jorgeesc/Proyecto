@@ -44,7 +44,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Mis Perfil') }}</div>
+                <div class="card-header">{{ __('Mi Perfil') }}</div>
 <div class="card-body">
 
 <a href="{{route('home')}}">Inicio</a> <br><br>
