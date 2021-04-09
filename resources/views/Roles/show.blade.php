@@ -2,17 +2,17 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">{{ __('Juegos') }}</div>
-<div class="card-body">
-<a href="{{route('Roles.index')}}">Inicio</a> <br><br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border-info mb-3" style="max-width: 65rem; , max-heigth: 60rem;">
+                <legend class="card header text-white bg-info mb-2 text-center">{{ __('Roles') }}</legend>
+                    <div class="card-body text-info">
+                        <a href="{{route('Roles.index')}}"> Regresar</a><br><br>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Información del Rol</th>
+            <th>Información del Rol</th><br><br>
             <th>
                 {{ Form::open(array('url' => route('Roles.destroy', $modelo->id), 'class' => 'pull-right')) }}
                     <a class="btn btn-primary" href="{{route('Roles.edit', $modelo->id)}}">Editar</a>
@@ -30,9 +30,8 @@
 
 </table>
 </div>
-                </div>
         </div>
     </div>
 </div>
-
+<br>
 @endsection
